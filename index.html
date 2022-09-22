@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FykoTV</title>
+
+    <style>
+        body {
+            background-image: url("Vlajka_vert.png");
+            background-size: 50%;
+            overflow: hidden;
+            background-position-y: 15%;
+            background-position-x: 50%;
+            background-color: #1175da;
+            background-repeat: no-repeat;
+        }
+        .strip {
+            background: white;
+            position: fixed;
+            top: 80%;
+            width: 100%;
+            height: 7%;
+            font-size: 5rem;
+            font-family: "Inter Black";
+            display: flex;
+            left: 0;
+        }
+        .time {
+            background: black;
+            color: white;
+            padding: 0 1rem;
+        }
+        .text {
+            flex-grow: 4;
+            padding: 0 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            vertical-align: center;
+        }
+        .text span {
+            display: inline-block;
+            padding-left: 100%;
+            /*animation: marquee-horizontal 40s linear infinite;*/
+        }
+        .ucastnici {
+            background: none;
+            position: fixed;
+            top: 8%;
+            width: 26%;
+            height: 65%;
+            font-size: 2.5rem;
+            color: white;
+            left: 4%;
+            overflow: hidden;
+            border-style: double;
+            border: #D20000;
+            font-family: "Inter Black";
+        }
+        .pravidla {
+            background: none;
+            position: fixed;
+            top: 10%;
+            width: 26%;
+            height: 65%;
+            font-size: 2.5rem;
+            color: white;
+            right: 4%;
+            overflow: visible;
+            display: inline-block;
+            text-align: center;
+            font-family: "Inter Black";
+        }
+        .pravidla content{
+            animation: marquee-vertical 40s linear infinite;
+        }
+        .pravidla p {
+            display: block;
+        }
+
+        .ucastnici table {
+            table-layout: fixed;
+            width: 100%;
+            overflow: hidden;
+            /*animation: marquee-vertical 40s linear infinite;*/
+        }
+
+        td+td {
+            text-align: right;
+        }
+        @keyframes marquee-horizontal {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        @keyframes marquee-vertical {
+            100%   { transform: translate(0, -100%); }
+            0% { transform: translate(0, 0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="strip"><div class="time" id="time">15:36</div>
+        <div class="text"><span id="content">
+            Noví příslušníci vědecké třídy jsou vítáni ve Fykoreji. &#8226;
+            Očekávejte večerní proslov našeho Vůdce. &#8226;
+            Nejvyšší mluvčí dnes představí program na další dny pobytu. &#8226;
+            Na stole v bytě Ministra kázně byla dnes nalezena samice. &#8226;
+            Ministryně hojnosti navýšila příděly svačin.
+        </span></div>
+    </div>
+
+    <div class="ucastnici">
+        <div class="text">
+            <table>
+                <colgroup>
+                    <col style="text-align: right">
+                </colgroup>
+                <tr><td>Josef Trojan</td><td>+1000</td></tr>
+                <tr><td>Karel Kolář</td><td>+420</td></tr>
+                <tr><td>Martin Vaněk</td><td>-10</td></tr>
+                <tr><td>Veronika Hendrychová</td><td>+1000</td></tr>
+                <tr><td>Adéla Potužníková</td><td>+420</td></tr>
+                <tr><td>Hana Žitňanská</td><td>-10</td></tr>
+                <tr><td>Elena Chochoľaková</td><td>+1000</td></tr>
+                <tr><td>Václava Davidová</td><td>+420</td></tr>
+                <tr><td>Josefína Janečková</td><td>-10</td></tr>
+                <tr><td>Markéta Valkounová</td><td>+1000</td></tr>
+                <tr><td>Anna Richtrová</td><td>+420</td></tr>
+                <tr><td>Nějaká hodně dlouhá</td><td>-10</td></tr>
+                <tr><td>Karel Kolář</td><td>+420</td></tr>
+                <tr><td>Martin Vaněk</td><td>-10</td></tr>
+                <tr><td>Veronika Hendrychová</td><td>+1000</td></tr>
+                <tr><td>Hana Žitňanská</td><td>-10</td></tr>
+                <tr><td>Elena Chochoľaková</td><td>+1000</td></tr>
+                <tr><td>Václava Davidová</td><td>+420</td></tr>
+                <tr><td>Josefína Janečková</td><td>-10</td></tr>
+                <tr><td>Markéta Valkounová</td><td>+1000</td></tr>
+                <tr><td>Anna Richtrová</td><td>+420</td></tr>
+                <tr><td>Nějaká hodně dlouhá</td><td>-10</td></tr>
+                <tr><td>Karel Kolář</td><td>+420</td></tr>
+                <tr><td>Martin Vaněk</td><td>-10</td></tr>
+                <tr><td>Veronika Hendrychová</td><td>+1000</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="pravidla">
+        <div class="content">
+            <p>Nějaké pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+            <p>Je zakázáno nosit rozvázané tkaničky</p>
+            <p>Nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+            <p>Nějaké pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+            <p>Nějaké pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+            <p>Je zakázáno nosit rozvázané tkaničky</p>
+            <p>Nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+            <p>Nějaké pravidlo</p>
+            <p>Nehlaďte králíky ušima napřed</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    const updateTime = () => {
+        const date = new Date();
+        const shift = new Date();
+        var showdate = new Date();
+        // na obrazovce se zobrazuje reálný čas mínus shift
+        shift.setHours(6);
+        shift.setMinutes(50);
+        showdate.setHours(date.getHours()-shift.getHours());
+        showdate.setMinutes(date.getMinutes()-shift.getMinutes());
+        document.getElementById('time').innerHTML = showdate.getHours() + ":" + String(showdate.getMinutes()).padStart(2, "0");
+    }
+    setInterval(updateTime, 5000);
+    updateTime();
+
+    const updateFromServer = async () => {
+        const response = await fetch('https://fykos.cz/rocnik36/sous-podzim/tv');
+        const data = await response.json();
+        const content = Object.values(data).join(' &#8226; ');
+        document.getElementById('content').innerHTML = content;
+        document.getElementById('content').style.animation = 'marquee ' + content.length/10 + 's linear infinite';
+    }
+    setInterval(updateFromServer, 10000);
+    updateFromServer();
+</script>
+</html>

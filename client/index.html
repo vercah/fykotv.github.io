@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panem TV</title>
+</head>
+<body>
+    <ul id="messages">
+
+    </ul>
+    <input type="text" id="text" /><button id="submit">submit</button>
+
+</body>
+<script>
+    async function del(id) {
+        var request = await fetch('https://api.panem-tv.mercadia.cz/delete?id=' + id, {
+            method: 'delete',
+        });
+
+        await update();
+    }
+
+    const update = async () => {
+        const result = await fetch("https://api.panem-tv.mercadia.cz/messages");
+        const messages = await result.json();
+
+        document.getElementById("messages").innerHTML = "";
+
+        for (const message_id in messages) {
+            const message = messages[message_id];
+            const li = document.createElement("li");
+            li.textContent = message;
+            document.getElementById("messages").appendChild(li);
+
+            const button = document.createElement("button");
+            button.textContent = "Delete";
+            button.onclick = () => del(message_id);
+            li.appendChild(button);
+        }
+    }
+
+    const add = async () => {
+        const text = document.getElementById("text").value;
+        const formData = new URLSearchParams();
+        formData.append('message', text);
+        const result = await fetch("https://api.panem-tv.mercadia.cz/add?" + formData.toString(), {
+            method: 'post',
+        });
+
+        await update();
+        document.getElementById("text").value = "";
+    }
+
+    document.getElementById("submit").onclick = add;
+
+    update();
+</script>
+</html>
