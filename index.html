@@ -79,7 +79,20 @@
         .pravidla p {
             display: block;
         }
-
+        .test {
+            background: none;
+            position: fixed;
+            top: 10%;
+            width: 26%;
+            height: 65%;
+            font-size: 2.5rem;
+            color: black;
+            right: 20%;
+            overflow: visible;
+            display: inline-block;
+            text-align: center;
+            font-family: "Inter";
+        }
         .ucastnici table {
             table-layout: fixed;
             width: 100%;
@@ -103,11 +116,13 @@
     </style>
 </head>
 <body>
+    <div class="test">
+        <span id="test">test test</span>
+
+    </div>
 
     <div class="strip"><div class="time" id="time">15:36</div>
         <div class="text"><span id="content">
-            Počkat cože ono to funguje? &#8226;
-            Tak to jsem ani nečekala. &#8226;
             Pepa pohladil dva králíky ušima napřed, byl na hodinu zavřený na samotce. &#8226;
             Na stole v bytě Vedoucího kázně byla dnes nalezena samice. &#8226;
             Korektor reality dnes přepsal celou historii (zase).
@@ -151,7 +166,7 @@
 
     <div class="pravidla">
         <div class="content">
-            <p>Nějaké pravidlo</p>
+            <p>Nějké pravidlo</p>
             <p>Nehlaďte králíky ušima napřed</p>
             <p>Je zakázáno nosit rozvázané tkaničky</p>
             <p>Nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo a taky nějaké dlouhé pravidlo</p>
@@ -170,23 +185,26 @@
         const shift = new Date();
         var showdate = new Date();
         // na obrazovce se zobrazuje reálný čas mínus shift
-        shift.setHours(6);
-        shift.setMinutes(50);
+        shift.setHours(0);
+        shift.setMinutes(0);
         showdate.setHours(date.getHours()-shift.getHours());
         showdate.setMinutes(date.getMinutes()-shift.getMinutes());
         document.getElementById('time').innerHTML = showdate.getHours() + ":" + String(showdate.getMinutes()).padStart(2, "0");
+
     }
     setInterval(updateTime, 5000);
     updateTime();
 
     const updateFromServer = async () => {
         const response = await fetch('https://fykos.cz/rocnik36/sous-podzim/tv');
-        const data = await response.json();
-        const content = Object.values(data).join(' &#8226; ');
+        const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+        [...doc.querySelectorAll("#dokuwiki__content li")].map(el => el.textContent);
+        const content = Object.values(text).join(' &#8226; ');
         document.getElementById('content').innerHTML = content;
         document.getElementById('content').style.animation = 'marquee ' + content.length/10 + 's linear infinite';
     }
-    setInterval(updateFromServer, 10000);
+
+    setInterval(updateFromServer, 1000);
     updateFromServer();
 </script>
 </html>

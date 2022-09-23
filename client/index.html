@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panem TV</title>
+    <title>FykoTV</title>
 </head>
 <body>
     <ul id="messages">
@@ -23,7 +23,7 @@
     }
 
     const update = async () => {
-        const result = await fetch("https://api.panem-tv.mercadia.cz/messages");
+        const result = await fetch("https://fykos.cz/rocnik36/sous-podzim/tv");
         const messages = await result.json();
 
         document.getElementById("messages").innerHTML = "";
