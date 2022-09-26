@@ -188,8 +188,8 @@
         const shift = new Date();
         var showdate = new Date();
         // na obrazovce se zobrazuje reálný čas mínus shift
-        shift.setHours(1);
-        shift.setMinutes(45);
+        shift.setHours(0);
+        shift.setMinutes(0);
         showdate.setHours(date.getHours()-shift.getHours());
         showdate.setMinutes(date.getMinutes()-shift.getMinutes());
         document.getElementById('time').innerHTML = showdate.getHours() + ":" + String(showdate.getMinutes()).padStart(2, "0");
